@@ -1,0 +1,13 @@
+services:  #define los servicios
+  db:  #Nombre del servicio
+    image: postgres:16  # Imagende PostgreSQL, versión 16
+    container_name: inventory_management_postgres  #Nombre para el contenedor
+    restart: always  #reinicio automático
+
+    environment:  #Variables de entorno que inicializan la configuración del contenedor
+      POSTGRES_USER: inventory      #Usuario de PostgreSQL que se creará al iniciar
+      POSTGRES_PASSWORD: inventory123  #Contraseña de ese usuario
+      POSTGRES_DB: inventory      #Base de datos que se creará
+
+    ports:  #Puertos que se exponen de la máquina host al contenedor
+      - "5435:5432"  #Formato host:contenedor
